@@ -1,0 +1,23 @@
+<md-content class="view" layout="column" flex>
+  <div layout-padding layout="row" layout-align="center center">
+    <h3 class="main-home-header">Wat zou je willen doen?</h3>
+  </div>
+  <div layout="column" layout-padding flex>
+    <div flex="50" layout="column" layout-padding>
+      <div class="main-home-segment" flex layout="row" layout-align="center center" ng-click="transition('route.select')">
+        <img class="main-home-image" src="assets/img/home-map.png"></img>
+      </div>
+      <div class="md-block" layout="row">
+        <md-button ng-click="transition('route.select')" type="submit" class="md-primary md-raised" flex>Speur mee</md-button>
+      </div>
+    </div>
+    <div flex="50" layout="column" layout-padding>
+      <div class="main-home-segment" flex layout="row" layout-align="center center" ng-click="transition('report.select')">
+        <img class="main-home-image" src="assets/img/home-report.png"></img>
+      </div>
+      <div class="md-block" layout="row">
+        <md-button ng-click="transition('report.select')" type="submit" class="md-primary md-raised" flex>Direct melden</md-button>
+      </div>
+    </div>
+  </div>
+</md-content>

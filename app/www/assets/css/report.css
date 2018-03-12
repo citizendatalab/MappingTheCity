@@ -1,0 +1,34 @@
+.report-list md-icon svg {
+  fill: #ffc107;
+}
+
+.report-mapbox {
+  position: relative;
+  height: 200px;
+  min-height: 200px;
+}
+
+.report-mapbox svg {
+  fill: #ffc107;
+}
+
+.report-mapbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.report-mapbox-overlay p {
+  color: #fff;
+}
+
+.report-complete-textarea {
+  outline: #ffc107 solid 1px !important;
+  height: 150px !important;
+  padding: 5px !important;
+}

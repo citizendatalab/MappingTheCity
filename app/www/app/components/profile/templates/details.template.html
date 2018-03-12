@@ -1,0 +1,80 @@
+<md-dialog flex="90" class="dialog-wrapper">
+  <form ng-cloak name="detailsForm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Gegevens aanpassen</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-icon="assets/img/icons/close.svg"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-input-container class="md-block">
+          <md-icon md-svg-icon="assets/img/icons/label.svg"></md-icon>
+          <label>Weergavenaam:</label>
+          <input ng-model="details.name">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Leeftijd:</label>
+          <md-icon md-svg-icon="assets/img/icons/daterange.svg"></md-icon>
+          <md-select ng-model="details.ageClass">
+            <md-option ng-repeat="class in ageClasses" value="{{class}}">
+              {{class}}
+            </md-option>
+          </md-select>
+          <div class="md-errors-spacer"></div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Geslacht:</label>
+          <md-icon md-svg-icon="assets/img/icons/person.svg"></md-icon>
+          <md-select ng-model="details.gender">
+            <md-option value="male">
+              Man
+            </md-option>
+            <md-option value="female">
+              Vrouw
+            </md-option>
+            <md-option value="secret">
+              Geheim
+            </md-option>
+          </md-select>
+          <div class="md-errors-spacer"></div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <md-icon md-svg-icon="assets/img/icons/work.svg"></md-icon>
+          <label>Arbeidsstatus:</label>
+          <md-select ng-model="details.workStatus">
+            <md-option ng-repeat="status in workStatus" value="{{status.value}}">
+              {{status.name}}
+            </md-option>
+          </md-select>
+          <div class="md-errors-spacer"></div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <md-icon md-svg-icon="assets/img/icons/home.svg"></md-icon>
+          <label>Postcode cijfers:</label>
+          <input ng-model="details.zipcode" type="number">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <md-icon md-svg-icon="assets/img/icons/location_pin.svg"></md-icon>
+          <label>Huidige woonduur:</label>
+          <input ng-model="details.yearsInNeigbourhood" type="number">
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button class="md-raised md-primary" ng-click="confirmEditDetails(details)">
+        Opslaan
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

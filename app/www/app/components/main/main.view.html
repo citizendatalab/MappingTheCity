@@ -1,0 +1,70 @@
+<md-toolbar>
+  <div class="md-toolbar-tools" layout="row">
+    <md-button class="md-icon-button" aria-label="Menu" ng-click="toggle()">
+      <md-icon md-svg-icon="assets/img/icons/menu.svg"></md-icon>
+    </md-button>
+    <span flex>
+      {{currentNavItem}}
+    </span>
+  </div>
+</md-toolbar>
+<md-content layout="column" layout-align="center center" flex>
+  <md-nav-bar
+      class="main-nav-bar md-primary"
+      md-selected-nav-item="currentNavItem"
+      nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-sref="main.home" name="Home" flex="33" layout="row" layout-align="center center" aria-label="Home">
+        <md-icon md-svg-icon="assets/img/icons/home.svg"></md-icon>
+      </md-nav-item>
+      <md-nav-item md-nav-sref="main.map" name="Kaart" flex="33" layout="row" layout-align="center center" aria-label="Kaart">
+        <md-icon md-svg-icon="assets/img/icons/map.svg"></md-icon>
+      </md-nav-item>
+      <md-nav-item md-nav-sref="main.stats" name="Ranglijst" flex="33" layout="row" layout-align="center center" aria-label="Ranglijst">
+        <md-icon md-svg-icon="assets/img/icons/insert_chart.svg"></md-icon>
+      </md-nav-item>
+    </md-nav-bar>
+    <ui-view class="view" layout="column" flex></ui-view>
+</md-content>
+
+<md-sidenav class="md-sidenav-left" md-component-id="left" layout="column">
+  <md-toolbar>
+    <h1 class="md-toolbar-tools">
+      <div flex>Menu</div>
+      <md-button class="md-icon-button" aria-label="Menu" ng-click="toggle()">
+        <md-icon md-svg-icon="assets/img/icons/back.svg"></md-icon>
+      </md-button>
+    </h1>
+  </md-toolbar>
+
+  <md-content layout="column" layout-align="left" flex>
+    <md-list class="main-sidenav-list">
+      <md-list-item ng-click="transition('profile')">
+        <md-icon md-svg-icon="assets/img/icons/person.svg"></md-icon>
+        <p>Profiel</p>
+      </md-list-item>
+
+      <md-list-item ng-click="transition('help')">
+        <md-icon md-svg-icon="assets/img/icons/help.svg"></md-icon>
+        <p>Hoe werkt de app</p>
+      </md-list-item>
+
+      <md-list-item ng-click="transition('info')">
+        <md-icon md-svg-icon="assets/img/icons/info.svg"></md-icon>
+        <p>Informatie</p>
+      </md-list-item>
+
+      <md-list-item ng-click="logout($event)">
+        <md-icon md-svg-icon="assets/img/icons/exit.svg"></md-icon>
+        <p>Uitloggen</p>
+      </md-list-item>
+
+    </md-list>
+  </md-content>
+
+  <!--<md-content layout="column" layout-padding>
+    <div class="main-sidenav-disclaimer" flex layout="row" layout-align="center center" style="text-align: center">
+      <h3>Vragen of opmerkingen? Neem contact op via <a href="mailto:--email--">:--email--</a>.<h3>
+    </div>
+  </md-content>-->
+
+</md-sidenav>

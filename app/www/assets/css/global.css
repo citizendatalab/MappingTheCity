@@ -1,0 +1,42 @@
+body, html, .view {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+md-toolbar {
+  color: #fff !important;
+}
+
+md-toolbar span {
+  color: #fff;
+}
+
+md-toolbar md-icon svg {
+  fill: #fff;
+}
+
+.md-button.md-primary.md-raised {
+  color: #fff !important;
+}
+
+.md-full-width {
+  width: 100%;
+}
+
+.dialog-wrapper {
+  max-height: 90vh;
+}
+
+.md-no-margin-top {
+  margin-top: 0px;
+}
+
+.md-no-margin-bot {
+  margin-bottom: 0px;
+}
+
+md-radio-group {
+  overflow: hidden !important;
+}

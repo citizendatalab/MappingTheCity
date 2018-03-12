@@ -1,0 +1,27 @@
+<md-toolbar>
+  <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+    <md-button class="md-icon-button" aria-label="Menu" ng-click="return()">
+      <md-icon md-svg-icon="assets/img/icons/back.svg"></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+<md-content class="wrapper" layout="row" layout-align="center center" flex>
+  <form ng-cloak class="text-center">
+    <md-content>
+      <div>
+        Vul je e-mailadres in om je wachtwoord te resetten.
+      </div>
+      <div layout="row" layout-align="center start">
+        <md-input-container class="md-block" flex="90">
+          <label style="text-align:center">E-mail adres</label>
+          <input name="email" ng-model="data.email" type="email" required>
+        </md-input-container>
+      </div>
+      <div layout="row" layout-align="center center">
+        <div class="md-block">
+          <md-button ng-click="forgot(data)" type="submit" class="md-raised md-primary md-large">Reset</md-button>
+        </div>
+      </div>
+    </md-content>
+  </form>
+</md-content>

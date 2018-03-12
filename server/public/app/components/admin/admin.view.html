@@ -1,0 +1,29 @@
+<div class="admin-container">
+
+  <div class="admin-menu">
+    <div class="admin-menu-container">
+      <div class="admin-menu-item" ng-class="{active__item: isActive('/admin/users')}" ui-sref="admin.users">
+        <div class="admin-menu-text">
+          GEBRUIKERS
+        </div>
+      </div>
+      <div class="admin-menu-item" ng-class="{active__item: isActive('/admin/tasks')}" ui-sref="admin.tasks">
+        <div class="admin-menu-text">
+          OPDRACHTEN
+        </div>
+      </div>
+      <div class="admin-menu-item" ng-class="{active__item: isActive('/admin/routes')}" ui-sref="admin.routes">
+        <div class="admin-menu-text">
+          ROUTES
+        </div>
+      </div>
+      <div class="admin-menu-item" ng-class="{active__item: isActive('/admin/data')}" ui-sref="admin.data">
+        <div class="admin-menu-text">
+          DATA
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ui-view></div>
+</div>

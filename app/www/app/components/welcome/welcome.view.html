@@ -1,0 +1,280 @@
+<md-content layout="column" layout-fill>
+  <div class="carousel-container">
+    <div ng-include="slideNumber" ng-class="slideClass" ng-swipe-right="prevSlide()" ng-swipe-left="nextSlide()"></div>
+    <div class="carousel-nav">
+      <div class="carousel-nav-container">
+        <div class="carousel-nav-dot" ng-class="{ 'active': activeSlide(1) }" ng-click="adjustSlide(1)"></div>
+        <div class="carousel-nav-dot" ng-class="{ 'active': activeSlide(2) }" ng-click="adjustSlide(2)"></div>
+        <div class="carousel-nav-dot" ng-class="{ 'active': activeSlide(3) }" ng-click="adjustSlide(3)"></div>
+        <div class="carousel-nav-dot" ng-class="{ 'active': activeSlide(4) }" ng-click="adjustSlide(4)"></div>
+      </div>
+    </div>
+    <div class="carousel-skip" layout="row" layout-align="center center">
+      <md-button ng-click="skip()" type="submit" class="md-primary">Overslaan</md-button>
+    </div>
+  <div
+</md-content>
+
+<div id='pages'>
+  <script type="text/ng-template" id="1">
+    <md-content layout-fill layout-padding layout='column' layout-align="center center" class="carousel-slide-container">
+      <div class="carousel-slide-content" layout='column'>
+        <div class="carousel-slide-image" flex layout='row' layout-align="center center">
+          <img src="assets/img/welcome/logo.png" />
+        </div>
+        <div class="carousel-slide-text">
+          <h4>Ontdek uw eigen wijk</h4>
+        </div>
+      </div>
+    </md-content>
+  </script>
+
+  <script type="text/ng-template" id="2">
+    <md-content layout-fill layout-padding layout='column' layout-align="center center" class="carousel-slide-container">
+      <div class="carousel-slide-content" layout='column'>
+        <div class="carousel-slide-image" flex layout='row' layout-align="center center">
+          <img src="assets/img/welcome/rank.png" />
+        </div>
+        <div class="carousel-slide-text">
+          <h4>Voltooi taken, verdien punten en maak kans op prijzen</h4>
+        </div>
+      </div>
+    </md-content>
+  </script>
+
+  <script type="text/ng-template" id="3">
+    <md-content layout-fill layout-padding layout='column' layout-align="center center" class="carousel-slide-container">
+      <div class="carousel-slide-content" layout='column'>
+        <div class="carousel-slide-image" flex layout='row' layout-align="center center">
+          <img src="assets/img/welcome/map.png" />
+        </div>
+        <div class="carousel-slide-text">
+          <h4>Check de kaart om uw buurt beter te leren kennen</h4>
+        </div>
+      </div>
+    </md-content>
+  </script>
+
+  <script type="text/ng-template" id="4">
+    <md-content layout-fill layout-padding layout='column' layout-align="center center" class="carousel-slide-container">
+      <div class="carousel-slide-content" layout='column'>
+        <form ng-cloak class="carousel-slide-form" name="detailsForm">
+          <h3>Voltooi je profiel door onderstaande gegevens in te vullen. Dit is niet verplicht en kan op een later moment alsnog worden bijgewerkt.</h3>
+
+          <md-input-container class="md-block">
+            <md-icon md-svg-icon="assets/img/icons/label.svg"></md-icon>
+            <label>Weergavenaam:</label>
+            <input ng-model="details.name">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Leeftijd:</label>
+            <md-icon md-svg-icon="assets/img/icons/daterange.svg"></md-icon>
+            <md-select ng-model="details.ageClass">
+              <md-option ng-repeat="class in ageClasses" value="{{class}}">
+                {{class}}
+              </md-option>
+            </md-select>
+            <div class="md-errors-spacer"></div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Geslacht:</label>
+            <md-icon md-svg-icon="assets/img/icons/person.svg"></md-icon>
+            <md-select ng-model="details.gender">
+              <md-option value="male">
+                Man
+              </md-option>
+              <md-option value="female">
+                Vrouw
+              </md-option>
+              <md-option value="secret">
+                Geheim
+              </md-option>
+            </md-select>
+            <div class="md-errors-spacer"></div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <md-icon md-svg-icon="assets/img/icons/work.svg"></md-icon>
+            <label>Arbeidsstatus:</label>
+            <md-select ng-model="details.workStatus">
+              <md-option ng-repeat="status in workStatus" value="{{status.value}}">
+                {{status.name}}
+              </md-option>
+            </md-select>
+            <div class="md-errors-spacer"></div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <md-icon md-svg-icon="assets/img/icons/home.svg"></md-icon>
+            <label>Postcode cijfers:</label>
+            <input ng-model="details.zipcode" type="number">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <md-icon md-svg-icon="assets/img/icons/location_pin.svg"></md-icon>
+            <label>Huidige woonduur:</label>
+            <input ng-model="details.yearsInNeigbourhood" type="number">
+          </md-input-container>
+        </form>
+        <md-button class="md-raised md-primary" ng-click="update(details)">
+          Opslaan
+        </md-button>
+      </div>
+    </md-content>
+  </script>
+
+</div>
+
+
+<!-- <ion-view title="Welkom!">
+  <ion-content scroll="false">
+    <div class="wrapper">
+      <ion-slide-box class="welcome-slider" on-slide-changed="slideHasChanged($index)">
+        <ion-slide>
+          <div class="welcome-walkthrough-container">
+            <div class=" welcome-walkthrough-body">
+              <div class="welcome-walkthrough-image">
+                <img src="assets/img/logo.png"></img>
+              </div>
+              <div class="welcome-walkthrough-text">
+                <p>Breng de gezondheid van je wijk in kaart</p>
+              </div>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="welcome-walkthrough-container">
+            <div class=" welcome-walkthrough-body">
+              <div class="welcome-walkthrough-image">
+                <img src="assets/img/walkthrough-points.png"></img>
+              </div>
+              <div class="welcome-walkthrough-text">
+                <p>Voltooi opdrachten, verdien punten en vlieg omhoog in de ranglijst</p>
+              </div>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="welcome-walkthrough-container">
+            <div class="welcome-walkthrough-body">
+              <div class="welcome-walkthrough-image">
+                <img src="assets/img/walkthrough-map.png"></img>
+              </div>
+              <div class="welcome-walkthrough-text">
+                <p>Bekijk de kaart om te ontdekken wat anderen vinden en (her)ontdek je buurt!</p>
+              </div>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide class="welcome-slide">
+          <ion-content class="welcome-content">
+            <div class="welcome-walkthrough-container">
+              <div class="welcome-header">
+                <p>Voltooi je profiel door onderstaande gegevens in te vullen. Dit is niet verplicht en kan op een later moment alsnog worden bijgewerkt.</p>
+                <div class="welcome-info-button">
+                  <a class="waves-effect waves-amber btn amber" ng-click="skip()">Overslaan</a>
+                </div>
+              </div>
+              <form class="welcome-form">
+                <div class="welcome-info-container">
+                  <div class="welcome-disclaimer">
+                    Let op: <br />
+                    De weergave naam is zichtbaar voor andere gebruikers, indien niet ingevuld wordt "anoniem" gebruikt. Overige gegevens zijn niet publiek.
+                  </div>
+                  <div class="input-field">
+                    <input id="name" type="text" autocomplete="off" ng-model="data.name">
+                    <label class="amber-text active" for="name">Weergave naam</label>
+                  </div>
+                  <div class="welcome-info-field">
+                    <div class="welcome-info-text">
+                      Leeftijd
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="age" type="radio" id="0-17" ng-model="data.ageClass" value="0-17"/>
+                      <label for="0-17">0-17</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="age" type="radio" id="18-29" ng-model="data.ageClass" value="18-29"/>
+                      <label for="18-29">18-29</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="age" type="radio" id="30-39" ng-model="data.ageClass" value="30-39"/>
+                      <label for="30-39">30-39</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="age" type="radio" id="40-49" ng-model="data.ageClass" value="40-49"/>
+                      <label for="40-49">40-49</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="age" type="radio" id="50-64" ng-model="data.ageClass" value="50-64"/>
+                      <label for="50-64">50-64</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="age" type="radio" id="65+" ng-model="data.ageClass" value="65+"/>
+                      <label for="65+">65+</label>
+                    </div>
+                  </div>
+                  <div class="welcome-info-field">
+                    <div class="welcome-info-text">
+                      Geslacht
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="gender" type="radio" id="male" ng-model="data.gender" value="male"/>
+                      <label for="male">Man</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="gender" type="radio" id="female" ng-model="data.gender" value="female"/>
+                      <label for="female">Vrouw</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="gender" type="radio" id="secret" ng-model="data.gender" value="secret" class="amber"/>
+                      <label for="secret">Geheim</label>
+                    </div>
+                  </div>
+                  <div class="welcome-info-field">
+                    <div class="welcome-info-text">
+                      Arbeidsstatus
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="employment" type="radio" id="werkzaam" ng-model="data.workStatus" value="employed"/>
+                      <label for="werkzaam">Werkzaam</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="employment" type="radio" id="werkzoekend" ng-model="data.workStatus" value="unemployed"/>
+                      <label for="werkzoekend">Werkzoekend</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="employment" type="radio" id="student" ng-model="data.workStatus" value="student"/>
+                      <label for="student">Student / Schoolgaand</label>
+                    </div>
+                    <div class="welcome-info-radio">
+                      <input name="employment" type="radio" id="pensioen" ng-model="data.workStatus" value="retired"/>
+                      <label for="pensioen">Pensioen</label>
+                    </div>
+                  </div>
+                  <div class="input-field">
+                    <input id="zipcode" type="text" autocomplete="off" ng-model="data.zipcode" maxlength="4">
+                    <label class="amber-text active" for="zipcode">Postcode Cijfers</label>
+                  </div>
+                  <div class="input-field">
+                    <input id="yearsInNeigbourhood" type="number" autocomplete="off" ng-model="data.yearsInNeigbourhood" maxlength="4">
+                    <label class="amber-text active" for="yearsInNeigbourhood">Aantal jaar woonachtig in Slotermeer</label>
+                  </div>
+                  <div class="welcome-info-button">
+                    <a class="waves-effect waves-amber btn amber" ng-click="update(data)">Opslaan</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+        </ion-slide>
+      </ion-slide-box>
+      <div class="welcome-footer">
+        <div class="welcome-footer-button">
+          <a class="waves-effect waves-amber btn amber" ng-click="skip()">Begin</a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view> -->

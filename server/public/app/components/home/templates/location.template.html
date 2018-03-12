@@ -1,0 +1,31 @@
+<md-dialog flex="90" class="dialog-wrapper">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{location.properties.name}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-svg-icon="assets/img/icons/close.svg"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content flex>
+    <div class="md-dialog-content" ng-if="loading" layout="column" flex layout-align="center center">
+      <md-progress-circular class="md-primary" md-diameter="40"></md-progress-circular>
+      <p>Informatie over locatie wordt opgehaald</p>
+    </div>
+  </md-dialog-content>
+
+  <div class="md-dialog-content" flex ng-if="!loading">
+    <h3>Op deze locaties zijn {{locationData.length}} mensen geweest</h3>
+  </div>
+</md-dialog-content>
+
+  <md-dialog-actions layout="row">
+    <md-button class="md-raised md-primary" ng-click="cancel()">
+      Sluiten
+    </md-button>
+  </md-dialog-actions>
+
+</md-dialog>

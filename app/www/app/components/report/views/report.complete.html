@@ -1,0 +1,54 @@
+<md-toolbar>
+  <div class="md-toolbar-tools" layout="row">
+    <md-button class="md-icon-button" aria-label="Return" ng-click="return('report.select')">
+      <md-icon md-svg-icon="assets/img/icons/back.svg"></md-icon>
+    </md-button>
+    <span flex>
+      {{selectedTask.title}}
+    </span>
+  </div>
+</md-toolbar>
+<md-content class="view" layout="column" flex>
+  <mapbox class="report-mapbox" callback="map" ></mapbox>
+  <div class="report-mapbox-overlay" layout="column" layout-align="center center" ng-show="mapOverlay">
+    <p>Bezig met het bepalen van de locatie</p>
+    <md-progress-circular class="md-primary" md-diameter="50"></md-progress-circular>
+  </div>
+
+  <form name="taskForm" ng-submit="submitTask($event)" flex layout-padding>
+    <h3 class="md-no-margin-bot" style="text-align: center">{{selectedTask.title}}</h3>
+    <p style="text-align: center">{{selectedTask.normalQText}}</p>
+    <md-divider class="md-full-width"></md-divider>
+
+    <md-input-container layout="row" class="md-block md-no-margin-top" ng-repeat="question in selectedTask.questions">
+      <p>{{question.text}}</p>
+      <md-radio-group ng-model="submitData.answers[$index]" ng-show="question.type === 'question_single'">
+        <md-radio-button value="{{answer.value}}" class="md-primary" ng-repeat ="answer in question.answers">{{answer.value}}</md-radio-button>
+      </md-radio-group>
+
+      <div flex ng-show="question.type === 'question_multiple'" ng-repeat="answer in question.answers">
+        <md-checkbox flex ng-checked="exists(answer.value, selectedCheckboxes)" ng-click="toggleCheckbox(answer.value, selectedCheckboxes, $parent.$index)">
+          {{answer.value}}
+        </md-checkbox>
+      </div>
+
+      <div flex ng-show="question.type === 'question_open'">
+        <textarea class="report-complete-textarea"  ng-model="submitData.answers[$index]" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </div>
+
+      <div ng-show="question.type === 'question_photo'">
+          <p>Voeg eventueel een foto toe (let op! dit kan meer data kosten)</p>
+          <img id="cameraBtn" src="assets/img/icons/camera.svg" width="90" ng-click="takePhoto($index)"/>
+          <img src="assets/img/icons/photo_library.svg" width="90" ng-click="choosePhoto($index)"/>
+          <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center">
+      </div>
+
+    </md-input-container>
+
+    <div class="md-block" layout="row">
+      <md-button type="submit" class="md-primary md-raised" flex>Voltooi melding</md-button>
+    </div>
+  </form>
+
+
+</md-content>

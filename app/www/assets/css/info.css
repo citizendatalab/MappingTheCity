@@ -1,0 +1,20 @@
+.info p {
+  margin-top: 0px;
+  /*text-align: justify;*/
+}
+
+.info ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 15px;
+}
+
+.info li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.info a {
+  text-decoration: none;
+  color: #ffc107;
+}

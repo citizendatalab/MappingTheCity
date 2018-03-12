@@ -1,0 +1,116 @@
+/* ========================== SIDE NAV =========================== */
+
+.main-sidenav-list md-list-item md-icon {
+  margin-top: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+.main-sidenav-list md-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.main-sidenav-list md-icon svg {
+  fill: #ffc107;
+  width: 30px;
+  height: 30px;
+}
+
+.main-sidenav-list md-list-item:last-child {
+  margin-top: 20px;
+}
+
+.main-sidenav-disclaimer {
+  height: 100px;
+  border: 1px solid #ffc107;
+}
+
+.main-sidenav-disclaimer a {
+  color: #ffc107;
+}
+
+ /* =========================== NAVBAR =========================== */
+.main-nav-bar {
+  width: 100%;
+  background: #000;
+}
+
+.md-nav-item:first-of-type {
+  margin-left: 0px;
+}
+
+.main-nav-bar md-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.main-nav-bar md-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.main-nav-bar a,
+.main-nav-bar button {
+  width: 100%;
+}
+
+.main-nav-bar md-nav-ink-bar {
+  width: 100%;
+  bottom: -3px;
+  height: 6px;
+}
+
+/* =========================== CONTENT =========================== */
+
+.main-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ============================ HOME ============================= */
+
+.main-home-header {
+  margin: 0;
+}
+
+.main-home-image-container {
+  position: relative;
+}
+
+.main-home-segment:focus {
+  outline: none;
+}
+
+.main-home-image {
+  max-width: 40%;
+  max-height: 40%;
+}
+
+/* ============================ STATS ============================ */
+
+.main-stats-container {
+  min-height: 100px;
+  height: 100px;
+  background-color: #ffc107;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-stats-container md-icon svg {
+  fill: #fff;
+  opacity: 0.3;
+}
+
+.main-stats-icon {
+  width: 80%;
+  height: 80%;
+  z-index: 0;
+
+  position: absolute;
+}
+
+.main-stats-header {
+  border-bottom: 1px solid #ffc107;
+}

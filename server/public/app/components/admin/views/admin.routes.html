@@ -1,0 +1,54 @@
+<div class="admin-container">
+
+  <div class="admin-view-header">
+    <p>ROUTE OVERZICHT</p>
+  </div>
+  <div class="admin-view-btn">
+    <div class="admin-accordion-button new-task" ng-click="openNewRoute(route)">
+        NIEUWE ROUTE
+    </div>
+  </div>
+
+  <div class="admin-tasks-theme">
+    <p>ACTIEF</p>
+  </div>
+  <div class="admin-routes-theme" ng-repeat="route in routes | filter : {active: true}" ng-hide="routes.length == 0"> 
+    <uib-accordion close-others="false">
+      <div uib-accordion-group class="panel-default admin-accordion-item {{route.category}}" heading="{{route.title}}">
+        <div class="admin-accordion-component">
+          <div class="admin-accordion-component-item">Naam: {{route.title}}</div>
+          <div class="admin-accordion-component-item">Punten: {{route.points}}</div>
+        </div>
+        <div class="admin-accordion-component">
+          <div class="admin-accordion-button" ng-click="openEditRoute(route)">
+            WIJZIG
+          </div>
+        </div>
+      </div>
+    </uib-accordion>
+  
+  </div>
+  <div class="admin-tasks-theme">
+    <p>INACTIEF</p>
+  </div>
+  <div class="admin-routes-theme" ng-repeat="route in routes | filter : {active: false}" ng-hide="routes.length == 0"> 
+    <uib-accordion close-others="false">
+      <div uib-accordion-group class="panel-default admin-accordion-item {{route.category}}" heading="{{route.title}}">
+        <div class="admin-accordion-component">
+          <div class="admin-accordion-component-item">Naam: {{route.title}}</div>
+          <div class="admin-accordion-component-item">Punten: {{route.points}}</div>
+        </div>
+        <div class="admin-accordion-component">
+          <div class="admin-accordion-button" ng-click="openEditRoute(route)">
+            WIJZIG
+          </div>
+        </div>
+      </div>
+    </uib-accordion>
+  
+  </div>
+
+</div>
+  
+    
+

@@ -1,0 +1,44 @@
+<md-dialog flex="90" class="dialog-wrapper">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{location.properties.name}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()" aria-label="cancel">
+        <md-icon md-svg-icon="assets/img/icons/close.svg"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content >
+    <div class="md-dialog-content" ng-if="loading" layout="column" flex layout-align="center center">
+      <md-progress-circular class="md-primary" md-diameter="40"></md-progress-circular>
+      <p>Informatie over locatie wordt opgehaald</p>
+    </div>
+
+    <div class="md-dialog-content" flex ng-if="!loading">
+      <h4 ng-if="locationData.length != 1">Op deze locatie zijn <span md-colors="{color: 'amber-800'}">{{locationData.length}}</span> personen geweest</h4>
+      <h4 ng-if="locationData.length == 1">Op deze locatie is <span md-colors="{color: 'amber-800'}">{{locationData.length}}</span> persoon geweest</h4>
+      <md-divider></md-divider>
+
+      <div layout="column" ng-repeat="task in tasks" ng-show="!$last && locationData.length > 0">
+        <h4>{{task.title}}</h4>
+        <p ng-repeat="question in task.questions">
+          Op de vraag "<span md-colors="{color: 'amber-800'}">{{question.text}}</span>" antwoordden de meeste mensen "<span md-colors="{color: 'amber-800'}">{{question.answers[0].answer}}</span>".
+        </p>
+      </div>
+
+      <div layout="column" ng-show="locationData.length == 0">
+        <p>Er is nog geen informatie beschikbaar</p>
+      </div>
+    </div>
+
+  </md-dialog-content>
+
+  <md-dialog-actions layout="row">
+    <md-button class="md-raised md-primary" ng-click="cancel()">
+      Sluiten
+    </md-button>
+  </md-dialog-actions>
+
+</md-dialog>

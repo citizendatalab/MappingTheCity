@@ -1,0 +1,37 @@
+<md-dialog flex="90" class="dialog-wrapper">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{marker.properties.address}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-svg-icon="assets/img/icons/close.svg"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div class="md-dialog-content" flex>
+      <h3>{{marker.properties.task}}</h3>
+      <md-divider></md-divider>
+      <div layout="column" ng-repeat="question in marker.properties.questions">
+        <h4>{{question.text}}</h4>
+        <div ng-if="type(marker.properties.answers[$index]) == 'string'">
+          <p>{{marker.properties.answers[$index]}}</p>
+        </div>
+
+        <div ng-if="type(marker.properties.answers[$index]) == 'object'">
+          <p ng-repeat="answer in marker.properties.answers[$index]">{{answer}}</p>
+        </div>
+
+      </div>
+    </div>
+  </md-dialog-content>
+
+  <md-dialog-actions layout="row">
+    <md-button class="md-raised md-primary" ng-click="cancel()">
+      Sluiten
+    </md-button>
+  </md-dialog-actions>
+
+</md-dialog>

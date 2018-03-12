@@ -1,0 +1,84 @@
+<div class="modal-container">
+  <div class="modal-header {{routeInfo.category}}">
+    <p>{{routeInfo.title}}</p>
+  </div>
+  <form class="modal-form" role="form">
+    <div class="form-group col-md-6">
+       <label for="title">Naam route</label>
+       <input type="text" class="form-control" id="title" ng-model="routeInfo.title">
+    </div>
+    <div class="form-group col-md-6">
+       <label for="points">Aantal punten voor volledig afronden van route</label>
+       <input type="number" class="form-control" id="points" ng-model="routeInfo.points">
+    </div>
+    <div class="form-group col-md-6">
+       <label for="routeActive">Moet deze route worden getoond in de app?</label>
+            <select class="form-control" id="routeActive" name="routeActive" ng-model="routeInfo.active" ng-options="o.v as o.n for o in [{ n: 'Nee', v: false }, { n: 'Ja', v: true }]">
+      </select>
+    </div>
+    
+
+
+    <div class="form-locations col-md-12">
+       Maak route en plaats locaties op de kaart.
+      </div>
+     <div class="form-locations col-md-12">
+      <mapbox callback="map" style="width:100%;height:300px"></mapbox>
+    </div>
+
+    <div class="form-locations col-md-12">
+      Locaties
+      <!--<button type="button" class="btn btn-default" ng-click="addLocation()">Extra Locatie</button>-->
+    </div>
+    <div ng-repeat="location in routeInfo.locations track by $index" class="form-group">
+     <div class="row">
+      <div class="col-md-2">
+        <label>Locatie {{ $index + 1 }}:</label>
+      </div>
+      <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="questionType$index">Naam</label>
+                <input type="text" class="form-control" id="text" ng-model="routeInfo.locations[$index].name"></input>
+            </div>
+            <div class="col-md-4">
+              <label for="questionType$index">Latitude</label>
+                <input type="text" class="form-control" id="text" ng-model="routeInfo.locations[$index].lat"></input>
+            </div>
+            <div class="col-md-4">
+              <label for="questionType$index">Longitude</label>
+                <input type="text" class="form-control" id="text" ng-model="routeInfo.locations[$index].lng"></input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-locations col-md-12">
+              Taken om te tonen bij locaties
+               <select class="form-control" id="selectTasks" name="selectTasks" ng-model="routeInfo.selectedTask" ng-options="task as task.title for task in allTasks | filter:{partOf :{ route : true}} track by task.title" ng-change ="taskSelected($index)">
+                 
+               </select>
+            </div>
+
+            <div class="col-md-12"<p>Geselecteerde taken voor deze route:</p></div>
+            <div class="col-md-12" ng-repeat="selectedT in routeInfo.locations[$index].tasks track by selectedT._id">
+                <div class="col-md-6">{{selectedT.title}}</div>
+                <div class="col-md-6" ng-click="removeTask(selectedT, $parent.$index)">Verwijderen</div>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+    <!--<div class="form-group col-md-12">
+       <label for="lineString">Linestring van route [[lng,lat], [lng,lat], ... ]</label>
+       <input type="text" class="form-control" id="lineString" ng-model="routeInfo.lineString">
+    </div>-->
+    
+   
+
+    
+
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-default" ng-click="createRoute(routeInfo)">Opslaan</button>
+      <button type="submit" class="btn btn-default" ng-click="cancel()">Annuleren</button>
+    </div>
+  </form>
+</div>

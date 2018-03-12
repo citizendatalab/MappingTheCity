@@ -1,0 +1,117 @@
+<md-content layout="column" flex>
+  <div class="main-stats-container" layout="row">
+    <div flex="50" layout="column" layout-align="center center">
+      <md-icon class="main-stats-icon" md-svg-icon="assets/img/icons/check.svg"></md-icon>
+      <div flex="60" layout="column" layout-align="center center">
+        <h2>{{profile.completedTasks.length}}</h2>
+      </div>
+      <div flex="40" layout="column" layout-align="center center">
+        Voltooide taken
+      </div>
+    </div>
+    <div flex="50" layout="column" layout-align="center center">
+      <md-icon class="main-stats-icon" md-svg-icon="assets/img/icons/star.svg"></md-icon>
+      <div flex="60" layout="column" layout-align="center center">
+        <h2>{{profile.points.total}}</h2>
+      </div>
+      <div flex="40" layout="column" layout-align="center center">
+        Behaalde punten
+      </div>
+    </div>
+  </div>
+  <div flex>
+    <md-nav-bar
+      class="main-nav-bar md-primary"
+      md-selected-nav-item="selectedStat"
+      nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('daily')" flex="50" layout="row" layout-align="center center" name="daily">
+        Dag
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('total')" flex="50" layout="row" layout-align="center center" name="total">
+        Totaal
+      </md-nav-item>
+    </md-nav-bar>
+    <div layout="column" layout-padding>
+      <div layout="row" class="main-stats-header">
+        <div flex="10"></div>
+        <div flex="60" layout="row" layout-align="start center">
+          Naam
+        </div>
+        <div flex="30" layout="row" layout-align="center center">
+          Punten
+        </div>
+      </div>
+      <div layout="row" ng-show="selectedStat == 'daily'" ng-repeat="user in overallRank.daily" ng-style="ownRank(user)">
+        <div flex="10">
+          {{$index + 1}}
+        </div>
+        <div flex="60" layout="row" layout-align="start center">
+          {{user.userInfo.name}}
+        </div>
+        <div flex="30" layout="row" layout-align="center center">
+          {{user.points.daily}}
+        </div>
+      </div>
+      <div layout="row" ng-show="selectedStat == 'total'" ng-repeat="user in overallRank.total" ng-style="ownRank(user)">
+        <div flex="10">
+          {{$index + 1}}
+        </div>
+        <div flex="60" layout="row" layout-align="start center">
+          {{user.userInfo.name}}
+        </div>
+        <div flex="30" layout="row" layout-align="center center">
+          {{user.points.total}}
+        </div>
+      </div>
+    </div>
+  </div>
+</md-content>
+
+<!-- <ion-view title="Ranglijst">
+      <div class="main-stats-ranks">
+        <div class="main-stats-ranks-header">
+          <div class="main-stats-ranks-header-item" ng-class="{active__list: isActiveRank('daily')}" ng-click="activateRank('daily')">
+            Dag
+          </div>
+          <!-- <div class="main-stats-ranks-header-item" ng-class="{active__list: isActiveRank('weekly')}" ng-click="activateRank('weekly')">
+            Week
+          </div> -->
+          <!-- <div class="main-stats-ranks-header-item" ng-class="{active__list: isActiveRank('total')}" ng-click="activateRank('total')">
+            Totaal
+          </div>
+        </div>
+        <div class="main-stats-list-body">
+          <div class="main-stats-list-header">
+            <div class="main-stats-list-header-item">
+              Naam
+            </div>
+            <div class="main-stats-list-header-fill"></div>
+            <div class="main-stats-list-header-item">
+              Punten
+            </div>
+          </div>
+          <div class="main-stats-list-item" ng-repeat="user in overallRank | orderBy: activeRankSort" ng-style="ownRank(user)">
+            <div class="main-stats-list-item-rank">
+              {{$index + 1}}
+            </div>
+            <div class="main-stats-list-item-name">
+              {{user.userInfo.name}}
+            </div>
+            <div class="main-stats-list-item-badges">
+              {{user.badges.length}}
+            </div>
+            <div class="main-stats-list-item-points" ng-show="isActiveRank('daily')">
+              {{user.points.daily}}
+            </div>
+            <!-- <div class="main-stats-list-item-points" ng-show="isActiveRank('weekly')">
+              {{user.points.weekly}}
+            </div> -->
+            <!-- <div class="main-stats-list-item-points" ng-show="isActiveRank('total')">
+              {{user.points.total}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view> -->

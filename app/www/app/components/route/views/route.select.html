@@ -1,0 +1,23 @@
+<md-toolbar>
+  <div class="md-toolbar-tools" layout="row">
+    <md-button class="md-icon-button" aria-label="Return" ng-click="return('main.home')">
+      <md-icon md-svg-icon="assets/img/icons/back.svg"></md-icon>
+    </md-button>
+    <span flex>
+      Loop een route
+    </span>
+  </div>
+</md-toolbar>
+<md-content class="view" layout="column" flex>
+  <div layout-padding layout="row" layout-align="center center">
+    <h4 class="main-home-header">Kies een route</h4>
+  </div>
+  <md-list flex>
+    <md-list-item class="report-list" ng-repeat="route in routes" ng-click="complete(route)">
+      <md-icon class="route-route-completed" ng-class="{'complete': route.completed}" md-svg-icon="assets/img/icons/check_circle.svg"></md-icon>
+      <p>{{route.title}}</p>
+      <md-icon md-svg-icon="assets/img/icons/next.svg"></md-icon>
+      <md-divider ></md-divider>
+    </md-list-item>
+  </md-flex>
+</md-content>

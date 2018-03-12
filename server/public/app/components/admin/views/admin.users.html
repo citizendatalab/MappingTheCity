@@ -1,0 +1,22 @@
+<div class="admin-container">
+  <div class="admin-view-header">
+    <p>GEBRUIKERS</p>
+  </div>
+
+  <uib-accordion close-others="false">
+    <div uib-accordion-group class="panel-default admin-accordion-item" heading="{{user.email}}" ng-repeat="user in users">
+      <div class="admin-accordion-component">
+        <div class="admin-accordion-component-item">Weergavenaam: {{user.userInfo.name}}</div>
+        <div class="admin-accordion-component-item">Leeftijd: {{user.userInfo.ageClass}}</div>
+        <div class="admin-accordion-component-item">Geslacht: {{user.userInfo.gender}}</div>
+        <div class="admin-accordion-component-item">Arbeidsstatus: {{user.userInfo.workStatus}}</div>
+        <div class="admin-accordion-component-item">Postcode: {{user.userInfo.zipcode}}</div>
+        <div class="admin-accordion-component-item">Woonduur: {{user.userInfo.yearsInNeigbourhood}}</div>
+      </div>
+      <div class="admin-accordion-component">
+          <div class="admin-accordion-component-item">Punten: {{user.points.weekly}} / {{user.points.daily}} / {{user.points.total}}</div>
+          <div class="admin-accordion-component-item">Voltooide taken: {{user.completedTasks.length}}</div>
+      </div>
+    </div>
+  </uib-accordion>
+</div>

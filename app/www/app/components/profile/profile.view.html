@@ -1,0 +1,80 @@
+<md-toolbar>
+  <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+    <md-button class="md-icon-button" aria-label="Menu" ng-click="return()">
+      <md-icon md-svg-icon="assets/img/icons/back.svg"></md-icon>
+    </md-button>
+    <span flex>
+      Profiel
+    </span>
+  </div>
+</md-toolbar>
+<md-content layout="column" flex>
+  <div class="profile-warning" ng-hide="profile.userInfo.complete" layout-padding>
+    <p>
+      Je profiel is nog niet volledig ingevuld! Klik op gegevens aanpassen om je profiel aan te vullen.
+    </p>
+  </div>
+  <div layout="column" layout-padding>
+    <div layout="row">
+      <div flex="50" class="profile-list-item">
+        Weergavenaam:
+      </div>
+      <div flex="50">
+        {{profile.userInfo.name}}
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="50" class="profile-list-item">
+        Leeftijd:
+      </div>
+      <div flex="50">
+        {{profile.userInfo.ageClass}}
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="50" class="profile-list-item">
+        Geslacht:
+      </div>
+      <div flex="50">
+        <span ng-if="profile.userInfo.gender === 'male'">Mannelijk</span>
+        <span ng-if="profile.userInfo.gender === 'female'">Vrouwelijk</span>
+        <span ng-if="profile.userInfo.gender === 'secret'">Geheim</span>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="50" class="profile-list-item">
+        Arbeidsstatus
+      </div>
+      <div flex="50">
+        <span ng-if="profile.userInfo.workStatus === 'employed'">Werkzaam</span>
+        <span ng-if="profile.userInfo.workStatus === 'unemployed'">Werkloos</span>
+        <span ng-if="profile.userInfo.workStatus === 'student'">Student of schoolgaand</span>
+        <span ng-if="profile.userInfo.workStatus === 'retired'">Gepensioneerd</span>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="50" class="profile-list-item">
+        Cijfers postcode:
+      </div>
+      <div flex="50">
+        {{profile.userInfo.zipcode}}
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="50" class="profile-list-item">
+        Huidige woonduur:
+      </div>
+      <div flex="50">
+        {{profile.userInfo.yearsInNeigbourhood}}
+      </div>
+    </div>
+  </div>
+
+  <div class="md-block" layout="row">
+    <md-button ng-click="editDetails($event)" class="md-primary md-raised" flex>Gegevens aanpassen</md-button>
+  </div>
+
+  <div class="md-block" layout="row">
+    <md-button ng-click="editPassword($event)" class="md-primary md-raised" flex>Wachtwoord wijzigen</md-button>
+  </div>
+</md-content>

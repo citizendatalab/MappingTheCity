@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="form">
+      <form role="form">
+         <div class="form-group">
+            <label for="username">Gebruikersnaam</label>
+            <input type="text" class="form-control" id="username" ng-model="data.username">
+         </div>
+
+         <div class="form-group">
+            <label for="password">Wachtwoord</label>
+            <input type="password" class="form-control" id="password" ng-model="data.password">
+         </div>
+         <div class="loginBtn">
+            <button type="submit" class="btn btn-default" ng-click="signin(data)">Inloggen</button>
+        </div>
+      </form>
+    </div>
+</div>

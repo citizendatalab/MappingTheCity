@@ -1,0 +1,32 @@
+<md-toolbar></md-toolbar>
+<md-content layout="row" layout-align="center center" flex>
+  <form ng-cloak class="text-center">
+    <md-content>
+      <div layout="row" layout-align="center start">
+        <md-input-container class="md-block" flex="90">
+          <label style="text-align:center">E-mail adres</label>
+          <input name="email" ng-model="data.email" type="email" required>
+        </md-input-container>
+      </div>
+      <div layout="row" layout-align="center start">
+        <md-input-container class="md-block" flex="90">
+          <label style="text-align:center">Wachtwoord</label>
+          <input name="password" ng-model="data.password" type="password" required>
+        </md-input-container>
+      </div>
+      <div layout="row" layout-align="center center">
+        <div class="md-block">
+          <md-button ng-click="signup(data)" type="submit" class="md-primary">Eerste keer? Meld je aan</md-button>
+        </div>
+        <div class="md-block">
+          <md-button ng-click="signin(data)" type="submit" class="md-raised md-primary">Log in</md-button>
+        </div>
+      </div>
+    </md-content>
+  </form>
+</md-content>
+<md-content layout="row" layout-align="center center" layout-padding>
+  <div ng-click="transitionToForgot()">
+    Wachtwoord vergeten? Klik hier
+  </div>
+</md-content>

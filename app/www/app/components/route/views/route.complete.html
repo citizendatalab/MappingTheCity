@@ -1,0 +1,75 @@
+<md-toolbar>
+  <div class="md-toolbar-tools" layout="row">
+    <md-button class="md-icon-button" aria-label="Return" ng-click="return('route.select')">
+      <md-icon md-svg-icon="assets/img/icons/back.svg"></md-icon>
+    </md-button>
+    <span flex>
+      {{selectedRoute.title}}
+    </span>
+  </div>
+</md-toolbar>
+<md-content class="view" layout="column" flex id="location-scroll">
+  <mapbox class="report-mapbox" callback="map" ></mapbox>
+  <div class="route-mapbox-overlay" layout="column" layout-align="center center" ng-show="gettingLocation">
+    <md-progress-circular class="md-primary" md-diameter="30"></md-progress-circular>
+  </div>
+
+  <div flex layout-padding layout="column" ng-show="activeView == 'route'">
+    <h3 class="md-no-margin-bot" style="text-align: center">{{selectedRoute.title}}</h3>
+    <p class="md-no-margin-top md-no-margin-bot" style="text-align: center">Locaties</p>
+    <md-divider class="md-full-width"></md-divider>
+
+    <md-list flex>
+      <md-list-item class="route-list" ng-repeat="location in selectedRoute.locations" ng-click="completeLocation(location)">
+        <p ng-class="{'completed': location.completed}"><span class="route-list-index">{{$index +1}}</span> {{location.name}}</p>
+        <md-icon md-svg-icon="assets/img/icons/next.svg"></md-icon>
+        <md-divider ></md-divider>
+      </md-list-item>
+    </md-list>
+  </div>
+
+  <div flex layout-padding layout="column" ng-show="activeView == 'location'">
+    <h3 class="md-no-margin-bot" style="text-align: center">{{selectedLocation.name}}</h3>
+    <div flex ng-repeat="task in selectedLocation.tasks" ng-show="$index == currentQuestion">
+      <p class="md-no-margin-top" style="text-align: center">Vraag {{$index + 1}}/{{selectedLocation.tasks.length }} </p>
+      <md-divider class="md-full-width"></md-divider>
+
+      <md-input-container layout="column" class="md-block md-no-margin-top" ng-repeat="question in task.questions">
+        <p>{{question.text}}</p>
+
+        <md-radio-group ng-model="currentData.answers[$index]" ng-show="question.type === 'question_single'">
+          <md-radio-button value="{{answer.value}}" class="md-primary" ng-repeat ="answer in question.answers" aria-label="Radio Button">{{answer.value}}</md-radio-button>
+        </md-radio-group>
+
+        <div flex ng-show="question.type === 'question_multiple'" ng-repeat="answer in question.answers">
+          <md-checkbox flex ng-checked="exists(answer.value, selectedCheckboxes)" ng-click="toggleCheckbox(answer.value, selectedCheckboxes, $parent.$index)" aria-label="Checkbox">
+            {{answer.value}}
+          </md-checkbox>
+        </div>
+
+        <div ng-show="question.type === 'question_open'">
+          <textarea class="route-complete-textarea" flex ng-model="currentData.answers[$index]" md-maxlength="300" md-select-on-focus aria-label="Textarea"></textarea>
+        </div>
+
+        <div ng-show="question.type === 'question_photo'">
+          <p>Voeg eventueel een foto toe</p>
+           <img id="cameraBtn" src="assets/img/icons/camera.svg" width="90" ng-click="takePhoto($index)"/>
+          <img src="assets/img/icons/photo_library.svg" width="90" ng-click="choosePhoto($index)"/>
+          <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center">
+        </div>
+
+
+
+      </md-input-container>
+
+      <div class="md-block" layout="row" ng-show="!$last">
+        <md-button class="md-primary md-raised" flex ng-click="nextQuestion($event)">Volgende vraag</md-button>
+      </div>
+
+      <div class="md-block" layout="row" ng-show="$last">
+        <md-button class="md-primary md-raised" flex ng-click="submitLocation($event)">Voltooi locatie</md-button>
+      </div>
+    </div>
+  </div>
+
+</md-content>

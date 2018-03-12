@@ -1,0 +1,27 @@
+<md-toolbar>
+  <div class="md-toolbar-tools" layout="row">
+    <md-button class="md-icon-button" aria-label="Return" ng-click="return('main.home')">
+      <md-icon md-svg-icon="assets/img/icons/back.svg"></md-icon>
+    </md-button>
+    <span flex>
+      Direct melden
+    </span>
+  </div>
+</md-toolbar>
+<md-content class="view" layout="column" flex>
+  <div layout-padding layout="row" layout-align="center center">
+    <h3 class="main-home-header">Kies een onderwerp</h3>
+  </div>
+  <md-list flex>
+    <div ng-repeat="theme in catData">
+      <md-subheader role="heading" aria-level="2" style="border-bottom: 1px solid {{theme.color}}">  
+        {{theme.label}}
+      </md-subheader> 
+      <md-list-item class="report-list" ng-repeat="task in theme.tasks" ng-click="complete(task)">
+      <p>{{task.title}}</p>
+      <md-icon md-svg-icon="assets/img/icons/next.svg"></md-icon>
+      <md-divider ></md-divider>
+    </md-list-item>
+    </div>
+  </md-flex>
+</md-content>

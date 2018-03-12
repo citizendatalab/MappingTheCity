@@ -1,0 +1,65 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="assets/css/global.css" rel="stylesheet">
+  <link href="assets/css/admin.css" rel="stylesheet">
+  <link href="assets/css/map.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/libs/mapbox.js/mapbox.css">
+  <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
+
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.4.10/leaflet.draw.css' rel='stylesheet'/>
+
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="container">
+  
+  <div ui-view></div>
+</div>
+  <!-- SCRIPTS -->
+  <script src="assets/libs/angular/angular.js"></script>
+  <script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="assets/libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+  <!-- LEAFLET -->
+  <script src="assets/libs/angular-simple-logger/dist/angular-simple-logger.js"></script>
+  <!--<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+   <script src="assets/libs/ui-leaflet/dist/ui-leaflet.min.js"></script>-->
+
+
+  <script src='assets/libs/mapbox.js/mapbox.js'></script>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.4.10/leaflet.draw.js'></script>
+  <script src='assets/libs/leaflet.markercluster/dist/leaflet.markercluster.js'></script>
+  <!-- ANGULAR -->
+
+  <script src="app/app.modules.js"></script>
+  <script src="app/app.routes.js"></script>
+
+  <!-- CONTROLLERS -->
+  <script src="app/components/authentication/authentication.controller.js"></script>
+  <script src="app/components/admin/admin.controller.js"></script>
+  <script src="app/components/home/home.controller.js"></script>
+
+  <script src="app/components/shared/filters.js"></script>
+  <!-- SERVICES -->
+  <script src="app/components/authentication/authentication.services.js"></script>
+  <script src="app/components/admin/admin.services.js"></script>
+  <script src="app/components/home/home.services.js"></script>
+  <script src="app/components/shared/localstorage/localstorage.services.js"></script>
+  <script src="app/components/shared/mapbox/mapbox_directive.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

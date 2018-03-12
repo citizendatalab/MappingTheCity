@@ -1,0 +1,110 @@
+<div class="modal-container">
+  <div class="modal-header {{newTask.category}}">
+    <p>Nieuwe taak</p>
+  </div>
+  <form class="modal-form taskForm" role="form" name="frm">
+    <div class="form-group col-md-6">
+       <label for="title">Taak titel</label>
+       <input type="text" class="form-control" id="title" ng-model="newTask.title" ngControl="title" required>
+    </div>
+    <div class="form-group col-md-6">
+       <label for="selectCat">Category</label>
+        <select class="form-control" id="selectCat" name="selectCat" ng-model="newTask.category" ng-options="category as category.label for category in categories track by category.label" required>
+        </select>
+    </div>
+    <div class="form-group col-md-6">
+       <label for="scavengerQText">Hoofdvraag voor speurtocht</label>
+       <textarea class="form-control" id="scavengerQText" ng-model="newTask.scavengerQText"></textarea>
+    </div>
+    <div class="form-group col-md-6">
+       <label for="normalQText">Hoofdvraag voor Kijk om je heen</label>
+       <textarea class="form-control" id="normalQText" ng-model="newTask.normalQText"></textarea>
+    </div>
+    <div class="form-group col-md-6">
+       <label for="points">Punten</label>
+       <input type="number" class="form-control" id="points" ng-model="newTask.points" required>
+    </div>
+    <div class="form-group col-md-6">
+       <label for="markerDescription">Marker omschrijving</label>
+       <input type="text" class="form-control" id="markerDescription" ng-model="newTask.markerDescription">
+    </div>
+     <div class="form-group col-md-6">
+      <label for="picReq">Is toevoeging van afbeelding mogelijk bij deze vraag?</label>
+      <select class="form-control" id="picReq" name="picReq" ng-model="newTask.withPicture" required>
+        <option ng-value="true">Ja</option>
+        <option ng-value="false">Nee</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+       <label for="activeTask">Moet deze taak gebruikt worden in de app?(Bij nee staat vraag op niet-actief).</label>
+      <select class="form-control" id="activeTask" name="activeTask" ng-model="newTask.active">
+        <option ng-value="true" ng-selected="true">Ja</option>
+        <option ng-value="false">Nee</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+       <label for="inRoute">Moet deze taak gevraagd kunnen worden binnen routes?.</label>
+      <select class="form-control" id="inRoute" name="inRoute" ng-model="newTask.partOf.route">
+        <option ng-value="true" ng-selected="true">Ja</option>
+        <option ng-value="false">Nee</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+       <label for="directMeld">Moet deze taak onder direct melden terugkomen?.</label>
+      <select class="form-control" id="directMeld" name="directMeld" ng-model="newTask.partOf.direct">
+        <option ng-value="true" ng-selected="true">Ja</option>
+        <option ng-value="false">Nee</option>
+      </select>
+    </div>
+
+
+
+    <div class="form-questions col-md-12">
+      Vragen
+      <button type="button" class="btn btn-default" ng-click="addQuestion()">Extra vraag toevoegen</button>
+    </div>
+    <div ng-repeat="question in newTask.questions track by $index" class="form-group">
+      <label class="col-md-12">Vraag {{ $index + 1 }}:</label>
+      <div class="col-md-2">
+        <label for="questionType$index">Type</label>
+        <select class="form-control" id="questionType$index" ng-model="newTask.questions[$index].type">
+          <option value="instruction">Instructie</option>
+          <option value="question_single">Vraag (1 antwoord)</option>
+          <option value="question_multiple">Vraag (meerdere antwoorden)</option>
+          <option value="question_open">Open vraag</option>
+          <option value="question_photo">Foto</option>
+        </select>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+           <label for="text">Text</label>
+           <textarea class="form-control" id="text" ng-model="newTask.questions[$index].text"></textarea>
+        </div>
+      </div>
+      <div class="col-md-2" ng-hide="newTask.questions[$index].type === 'question_open' || newTask.questions[$index].type === 'instruction'">
+        <div class="form-group">
+          <label for="answers">
+            Antwoorden
+          </label>
+          <input class="form-control" id="text" ng-repeat="answer in question.answers track by $index" ng-model="newTask.questions[$parent.$index].answers[$index].value"></input>
+
+          <button type="button" class="btn btn-default" ng-click="addAnswer($index)">Nieuw antwoord</button>
+        </div>
+      </div>
+      <div class="col-md-2" ng-hide="newTask.questions[$index].type === 'question_open' || newTask.questions[$index].type === 'instruction'">
+        <div class="form-group">
+          <label for="code">
+            Code
+          </label>
+          <input class="form-control" id="code" type="number" ng-value="{{$index+1}}" ng-repeat="answer in question.answers track by $index" ng-model="newTask.questions[$parent.$index].answers[$index].code"></input>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-default" ng-click="createTask(newTask)" ng-disabled="frm.$invalid">Opslaan</button>
+      <button type="submit" class="btn btn-default" ng-click="cancel()">Annuleren</button>
+    </div>
+  </form >
+</div>

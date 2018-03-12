@@ -1,0 +1,268 @@
+
+
+
+textarea {
+  resize: disable;
+}
+body{
+	font-family: 'Droid Sans', sans-serif;
+}
+
+a img{
+	border: none;
+}
+
+.header{
+	margin-top:15px;
+}
+	.header .logo img{
+		width:400px;
+
+		margin-left: -15px;
+	}
+
+	.header .menu ul{
+		list-style:none;
+		font-size:20px;
+		font-weight: bold;
+		letter-spacing:2px;
+	}
+		.header a{
+			color: #000000;
+
+		}
+			.header a:hover, .header a:active, .header a:visited, .header a:focus{
+				text-decoration: none;
+
+			}
+		.header .menu ul li span{
+			color: #FDBE2A;
+			font-size:22px;
+		}
+
+	.header .loginLink{
+		text-align:right;
+		letter-spacing:1px;
+	}
+
+	.header a.active-menu{
+		color:#FDBE2A;
+	}
+
+.subheader{
+	background-color: #FDBE2A;
+	padding:6px 15px 6px 3px;
+}
+
+	.subheader button{
+		background: #d1007f url(../img/downloadBtn.png) no-repeat 5px center;
+		background-size: 7%;
+		font-weight: bold;
+		color:#FFFFFF;
+		text-align:left;
+		padding:5px 5px 5px 25px;
+		float:right;
+		border:none;
+		letter-spacing:1px;
+	}
+
+.homeContent, .downloadTextContainer{
+	background-color: #E7E7E6;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+
+
+
+.mapOverlay {
+    position: absolute;
+    top: 40px;
+    right:35px;
+    width: 20%;
+    padding:15px;
+    background-color:#FFFFFF;
+}
+	.mapOverlayBelow{
+		padding:15px;
+		background-color: #FFFFFF;
+	}
+
+	.mapOverlayBelow h3{
+		margin-top:0;
+	}
+
+.dateLabel{
+	margin-top:5px;
+}
+.newsItem, .homeAbout{
+	margin-top:25px;
+	padding:15px;
+	background-color: #FFFFFF;
+}
+
+
+.homeAbout img, .infoOverview img{
+	margin-left:40px;
+	margin-bottom:40px;
+}
+	.homeAbout .firstImageFt, .infoOverview .firstImageFt{
+		margin-left:0px;
+	}
+
+.infoHome{
+padding:0;
+}
+
+.newsItem{
+	padding:5px 10px 5px 10px;
+	margin-top:10px;
+
+}
+
+	.newsItem img{
+		display:none;
+	}
+
+
+	.newsItem .facebookLink img{
+		display:block;
+		padding:2px;
+		padding-top:7px;
+		width:100%;
+	}
+	.newsItem .facebookLink div{
+		text-align: center;
+	}
+
+	.newsItem .facebookLink .fblogo{
+		display:inline;
+		width:18px;
+		margin-right:5px;
+		opacity:0.5;
+		padding:0;
+	}
+	.newsItem .readMore{
+		text-align:right;
+	
+	}
+	.newsItem .readMore a{
+		color:#d1007f;
+	}
+	.newsItem .facebookLink a{
+		text-align:left;
+		color:#d1007f;
+
+	}
+		
+
+.newsList{
+	padding-left:0px;
+}
+
+.newsList h1{
+	margin:0;
+}
+
+.downloadBtn{
+	margin-top:20px;
+	border:none;
+	background-color:#FDBE2A;
+	color:#FFFFFF;
+	padding:5px;
+	width:100%;
+	font-weight:bold;
+}
+
+.newsOverview, .infoOverview{
+	margin-top:25px;
+	padding:15px;
+	background-color: #FFFFFF;
+}
+
+.fullnewsItem{
+	border-bottom: 1px solid rgba(255, 193, 7, 1);
+}
+
+.container .form{
+	width:40%;
+	margin:0 auto;
+	margin-top:50px;
+}
+
+.downloadContentHead{
+	background-color: #FDBE2A;
+	height:100%;
+}
+
+	.downloadContentHead .screenshotImg{
+		margin-top:62px;
+		float:right;
+	}
+	.downloadContentHead p{
+		color:#FFFFFF;
+		font-size:26px;
+		float:left;
+
+	}
+
+	.downloadContentHead button{
+		background: #d1007f url(../img/downloadBtn.png) no-repeat 10px center;
+		background-size: 10%;
+		font-weight: bold;
+		color:#FFFFFF;
+		text-align:center;
+		padding:5px 15px 5px 35px;
+		border:none;
+		letter-spacing:1px;
+		width:130px;
+	}
+	.downloadContentHead .descriptionContainer{
+		margin-top:20%;
+		margin-left:30px;
+	}
+
+	.downloadContentHead .descriptionContainer img{
+
+		display:block;
+	}
+
+	.downloadGeneralText{
+		padding: 15px;
+		margin:15px;
+    	background-color: #FFFFFF;
+	}
+
+
+.firstVisit .modal-header{
+	height: 100%;
+}
+.firstVisit h2{
+	text-align:center;
+	
+}
+.firstVisit p{
+	text-align:center;
+	font-size:15px;
+	
+}
+	.firstVisit .downloadIcons{
+	margin-top:30px;
+	
+	}
+.firstVisit img{
+	max-width:135px;
+}
+	.firstVisit .androidIcon{
+		margin-left:20px;
+	}
+
+
+.subHeader{
+	font-weight: bold;
+	margin-bottom:0px;
+}
+
+
+.boldFont{
+	font-weight:bold;
+}

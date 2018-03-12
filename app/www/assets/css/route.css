@@ -1,0 +1,82 @@
+.route-mapbox {
+  position: relative;
+  height: 200px;
+  min-height: 200px;
+}
+
+.route-mapbox svg {
+  fill: #ffc107;
+}
+
+.route-mapbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
+  background-color: rgba(0, 0, 0, 0.0);
+  z-index: 1000;
+}
+
+.route-mapbox-overlay md-progress-circular {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.route-list md-icon svg {
+  fill: #ffc107;
+}
+
+.route-list .completed {
+  color: #eee;
+}
+
+.route-list-index {
+  margin-right: 10px;
+
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.route-route-completed {
+  opacity: 0;
+  margin-bottom: 16px;
+}
+
+.route-route-completed.complete {
+  opacity: 1;
+}
+
+.route-route-completed svg{
+  fill: #d1007f !important;
+}
+
+.route-location {
+  border-radius: 50%;
+  background-color: #d1007f;
+
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+.route-location-completed {
+  border-radius: 50%;
+  background-color: #F48FB1;
+
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+.route-complete-textarea {
+  outline: #ffc107 solid 1px !important;
+  height: 150px !important;
+  padding: 5px !important;
+}

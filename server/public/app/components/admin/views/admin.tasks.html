@@ -1,0 +1,71 @@
+<div class="admin-container">
+
+<div class="admin-accordion-button new-task" ng-click="openNewTask(task)">
+    NIEUWE TAAK
+  </div>
+
+  <div class="admin-categories">
+    <div class="admin-accordion-button manage-category" ng-click="manageCategories()">
+      BEHEER CATEGORIEËN
+    </div>
+  </div>
+
+  <div class="admin-view-header">
+    <p>ACTIEVE TAKEN</p>
+  </div>
+
+
+
+  <div class="admin-tasks-theme" ng-repeat="theme in categoryTasks"> 
+    <div class="admin-tasks-theme-header {{theme.label}}" style="border-bottom: 1px solid {{theme.color}}">
+      <p>{{theme.label}}</p>
+    </div>
+    <uib-accordion close-others="false">
+      <div uib-accordion-group class="panel-default admin-accordion-item {{theme.label}}" heading="{{task.title}}" ng-repeat="task in theme.tasks | filter : {active: true}">
+        <div class="admin-accordion-component">
+          <div class="admin-accordion-component-item">Gestart: {{task.startedBy.length}}</div>
+          <div class="admin-accordion-component-item">Voltooid: {{task.completedBy.length + task.archive.length}}</div>
+          <div class="admin-accordion-component-item">Punten: {{task.points}}</div>
+        </div>
+        <div class="admin-accordion-component">
+          <div class="admin-accordion-button" ng-click="openEditTask(task)">
+            WIJZIG
+          </div>
+        </div>
+      </div>
+    </uib-accordion>
+    <div class="admin-nothingfound" ng-show="theme.tasks.length == 0">
+      <p>Geen taken gevonden</p>
+    </div>
+  
+  </div>
+
+    <div class="admin-view-header">
+      <p>INACTIEVE TAKEN</p>
+    </div>
+    
+
+    <div class="admin-tasks-theme" ng-repeat="theme in categoryTasks">
+    <div class="admin-tasks-theme-header {{theme.label}}" style="border-bottom: 1px solid {{theme.color}}">
+      <p>{{theme.label}}</p>
+    </div>
+    <uib-accordion close-others="false">
+      <div uib-accordion-group class="panel-default admin-accordion-item {{them.label}}" heading="{{task.title}}" ng-repeat="task in theme.tasks | filter : {active: false}">
+        <div class="admin-accordion-component">
+          <div class="admin-accordion-component-item">Gestart: {{task.startedBy.length}}</div>
+          <div class="admin-accordion-component-item">Voltooid: {{task.completedBy.length + task.archive.length}}</div>
+          <div class="admin-accordion-component-item">Punten: {{task.points}}</div>
+        </div>
+        <div class="admin-accordion-component">
+          <div class="admin-accordion-button" ng-click="openEditTask(task)">
+            WIJZIG
+          </div>
+        </div>
+      </div>
+    </uib-accordion>
+    <div class="admin-nothingfound" ng-show="theme.tasks.length == 0">
+      <p>Geen taken gevonden</p>
+    </div>
+  
+  </div>
+</div>
